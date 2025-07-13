@@ -1,0 +1,142 @@
+.feature-section {
+  display: flex;
+  height: 80vh;
+  padding: 5rem 8vw;
+  align-items: center; /* Align content to the top */
+  justify-content: space-between;
+  gap: 4.5rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Layout direction */
+.section-left .content {
+  order: 0;
+}
+.section-left .image-side {
+  order: 1;
+}
+.section-right .content {
+  order: 1;
+}
+.section-right .image-side {
+  order: 0;
+}
+
+.content {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: -2rem;
+}
+
+.content h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #215d82;
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.content p {
+  font-size: 1.25rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+/* Button */
+.buttons {
+  margin-top: 0.5rem;
+}
+.buttons button {
+  background: #215d82;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(33, 93, 130, 0.2);
+}
+.buttons button:hover {
+  background: #183e5c;
+  transform: translateY(-2px);
+}
+.buttons button:focus {
+  outline: 3px solid #e0c097;
+  outline-offset: 2px;
+}
+
+/* Image container */
+.image-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-side img {
+  max-width: 95%;
+  max-height: 75vh;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(33, 93, 130, 0.25);
+  transition: transform 0.4s ease;
+}
+.image-side img:hover {
+  transform: scale(1.03);
+}
+
+/* Backgrounds */
+.section-left {
+  background-color: #c5c6c5;
+}
+.section-right {
+  background-color: #e8e2d4;
+}
+.content h2,
+.content p {
+  color: #215d82;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .feature-section {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    height: auto;
+    gap: 3rem;
+  }
+
+  .content,
+  .image-side {
+    max-width: 100%;
+    flex: none;
+  }
+
+  .content h2 {
+    font-size: 2.3rem;
+    text-align: center;
+  }
+
+  .content p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttons button {
+    width: 80%;
+  }
+
+  .image-side img {
+    max-height: 60vh;
+  }
+}
