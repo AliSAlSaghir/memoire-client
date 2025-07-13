@@ -1,0 +1,95 @@
+.future-message {
+  height: 90vh;
+  width: 98.9vw;
+  background: linear-gradient(to right, #e9ecf1, #f7f8fa);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.floating-icons .icon {
+  font-size: 60px; /* control size */
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+  position: absolute;
+  color: #215d82; /* or any color you want */
+}
+
+.icon.envelope {
+  top: 20%;
+  left: 15%;
+}
+
+.icon.clock {
+  top: 50%;
+  right: 20%;
+}
+
+.icon.capsule {
+  bottom: 15%;
+  left: 40%;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.centered-text {
+  z-index: 2;
+  max-width: 680px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.centered-text h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #215d82;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.centered-text p {
+  font-size: 1.3rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.memoire-word {
+  font-family: "Georgia", serif;
+  font-weight: 700;
+  font-size: 1.1em;
+  background: linear-gradient(90deg, #215d82, #e0b143);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .centered-text h2 {
+    font-size: 2rem;
+  }
+
+  .centered-text p {
+    font-size: 1rem;
+  }
+
+  .floating-icons .icon {
+    font-size: 40px;
+  }
+}
