@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PublicLayout from "./layouts/PublicLayout";
+import PrivateLayout from "./layouts/PrivateLayout";
+import ProtectedRoute from "./routes/ProtectedRoute";
+
+import Landing from "./pages/public/Landing";
+import Explore from "./pages/public/Explore";
+import About from "./pages/public/About";
+import Contact from "./pages/public/Contact";
+
+import Home from "./pages/private/Home";
+import CreateCapsule from "./pages/private/CreateCapsule";
+import Profile from "./pages/private/Profile";
+import CapsuleDetails from "./pages/private/CapsuleDetails";
+import CapsuleWall from "./pages/private/CapsuleWall";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Landing />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+
+        {/* Protected Routes */}
+        <Route
+          element={
+            <ProtectedRoute>
+              <PrivateLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="/home" element={<Home />} />
+          <Route path="/create" element={<CreateCapsule />} />
+          <Route path="/capsules" element={<CapsuleWall />} />
+          <Route path="/capsules/:capsuleId" element={<CapsuleDetails />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
