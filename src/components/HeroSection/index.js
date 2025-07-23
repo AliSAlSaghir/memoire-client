@@ -1,4 +1,3 @@
-// components/HeroSection/index.js
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -17,14 +16,14 @@ export const useHeroSectionLogic = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({
+  const handleChange = e => {
+    setFormData(prev => ({
       ...prev,
       [e.target.id]: e.target.value,
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
 
@@ -44,7 +43,7 @@ export const useHeroSectionLogic = () => {
         });
       }
 
-      localStorage.setItem("user", JSON.stringify(response.data));
+      localStorage.setItem("user", JSON.stringify(response.data.payload));
 
       toast.success(
         isRegister ? "Registered Successfully!" : "Logged in Successfully!"
@@ -69,7 +68,7 @@ export const useHeroSectionLogic = () => {
       "width=500,height=600"
     );
 
-    const handleMessage = (event) => {
+    const handleMessage = event => {
       if (event.origin !== "http://localhost:8000") return;
 
       const { token, user } = event.data;
@@ -82,7 +81,6 @@ export const useHeroSectionLogic = () => {
       }
 
       window.removeEventListener("message", handleMessage);
-      popup.close();
     };
 
     window.addEventListener("message", handleMessage);

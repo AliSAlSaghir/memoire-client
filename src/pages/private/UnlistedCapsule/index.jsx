@@ -1,25 +1,9 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useUnlistedLogic } from ".";
 import "./styles.css";
 
 const UnlistedCapsule = () => {
-  const [token, setToken] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!token.trim()) return;
-
-    setIsSubmitting(true);
-    // Simple validation - could be enhanced with regex
-    if (token.length >= 10) {
-      navigate(`/unlisted_capsule/${token}`);
-    } else {
-      alert("Please enter a valid token");
-      setIsSubmitting(false);
-    }
-  };
+  const { token, setToken, isSubmitting, handleSubmit } = useUnlistedLogic();
 
   return (
     <div className="unlisted-container">

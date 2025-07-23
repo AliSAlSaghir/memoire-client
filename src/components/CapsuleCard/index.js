@@ -24,7 +24,7 @@ export const useCapsuleCardLogic = (capsule, onDeleteSuccess) => {
     setIsCopying(true);
     try {
       const response = await api.get(`/capsules/${capsule.id}/share-token`);
-      const { share_token } = response.data;
+      const { share_token } = response.data.payload;
       await navigator.clipboard.writeText(share_token);
       toast.success("Share token copied to clipboard!");
     } catch (error) {
