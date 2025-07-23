@@ -1,5 +1,5 @@
 import React from "react";
-import "./FeatureSection.css";
+import "./styles.css";
 
 export default function FeatureSection({
   title,
