@@ -1,0 +1,194 @@
+.capsule-card {
+  flex: 1 1 220px;
+  max-width: 230px;
+  background-color: #ffffff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #d0e0f0;
+  box-shadow: 0 6px 20px rgba(33, 93, 130, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.capsule-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(33, 93, 130, 0.18);
+}
+
+.capsule-card.revealed {
+  border-left: 5px solid #4a9bd9;
+  border-top: 4px solid #4a9bd9;
+}
+
+.capsule-card.surprise {
+  border: 2px dashed #d0e4f5;
+  background-color: #f7fbff;
+  opacity: 0.9;
+}
+
+.capsule-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #215d82;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.surprise-tag {
+  background: #d4e6ff;
+  color: #1a4a63;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.capsule-meta {
+  font-size: 0.95rem;
+  color: #5a7d9a;
+}
+
+.capsule-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.capsule-btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.capsule-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.view-btn {
+  background: #4a9bd9;
+  color: white;
+}
+
+.view-btn:disabled {
+  background: #d1dbe8;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.edit-btn {
+  background: #f0c14b;
+  color: #333;
+}
+
+.edit-btn:disabled {
+  background: #f5e8c6;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+.capsule-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .capsule-btn {
+    flex: unset;
+    width: 100%;
+  }
+
+  .capsule-actions {
+    flex-direction: column;
+  }
+}
+
+/* Add to existing styles */
+.capsule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.privacy-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.privacy-private {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c2c7;
+}
+
+.privacy-public {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.privacy-unlisted {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.capsule-btn.copy-btn {
+  background-color: #c66aee;
+  color: white;
+  border: none;
+}
+
+.capsule-btn.copy-btn:hover {
+  background-color: #b736ee;
+}
+
+.capsule-btn.copy-btn:disabled {
+  background-color: #b19fc0;
+  cursor: not-allowed;
+}
+
+.capsule-btn.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.capsule-btn.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.capsule-btn.delete-btn:disabled {
+  background-color: #e0a8a0;
+  cursor: not-allowed;
+}
