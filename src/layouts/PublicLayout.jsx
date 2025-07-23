@@ -11,7 +11,7 @@ const PublicLayout = () => {
     if (user) {
       navigate("/capsules", { replace: true });
     }
-  }, []);
+  }, [navigate]);
   return (
     <>
       <Navbar />
