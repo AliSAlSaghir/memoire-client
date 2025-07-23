@@ -1,6 +1,6 @@
-import FeatureSection from "../../components/FeatureSection/FeatureSection";
-import FutureMessage from "../../components/FutureMessage/FutureMessage";
-import HeroSection from "../../components/HeroSection/HeroSection";
+import FeatureSection from "../../components/FeatureSection";
+import FutureMessage from "../../components/FutureMessage";
+import HeroSection from "../../components/HeroSection";
 
 const Landing = () => {
   return (
