@@ -1,9 +1,17 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const PublicLayout = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      navigate("/capsules", { replace: true });
+    }
+  }, []);
   return (
     <>
       <Navbar />

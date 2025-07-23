@@ -3,9 +3,9 @@ import Sidebar from "../components/Sidebar";
 
 const PrivateLayout = () => {
   return (
-    <div className="flex">
+    <div className="private-layout">
       <Sidebar />
-      <main className="flex-1 p-4">
+      <main className="main-content">
         <Outlet />
       </main>
     </div>
