@@ -2,7 +2,7 @@ import { GiSandsOfTime } from "react-icons/gi";
 import { SiTinyletter } from "react-icons/si";
 import { BiSolidCapsule } from "react-icons/bi";
 
-import "./FutureMessage.css";
+import "./styles.css";
 
 export default function FutureMessage() {
   return (
