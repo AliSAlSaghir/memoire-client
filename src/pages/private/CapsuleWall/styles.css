@@ -1,0 +1,167 @@
+:root {
+  --primary: #215d82;
+  --secondary: #e0c097;
+  --text: #333;
+  --bg: #f8f9fa;
+  --border: #ddd;
+}
+
+.main-content {
+  padding: 0.5rem 0rem;
+  overflow-x: hidden;
+}
+
+.wall-content {
+  flex: 1;
+  padding: 1rem 2rem;
+  width: 103%;
+  background-color: var(--bg);
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: white;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 180px;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.filter-group select {
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--text);
+}
+
+.filter-actions {
+  display: flex;
+  align-items: flex-end;
+}
+
+.filter-actions button {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.filter-actions button:hover {
+  background-color: #184a66;
+}
+
+/* Masonry layout */
+.masonry {
+  column-count: 4;
+  column-gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+/* Cards */
+.card {
+  break-inside: avoid;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.emoji {
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-top: 1rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  color: var(--primary);
+}
+
+/* Card size heights */
+.card.short {
+  height: 150px;
+}
+
+.card.medium {
+  height: 190px;
+}
+
+.card.tall {
+  height: auto;
+  padding: 0;
+}
