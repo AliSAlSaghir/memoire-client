@@ -1,6 +1,6 @@
 import { BsTwitterX } from "react-icons/bs";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import "./Footer.css";
+import "./styles.css";
 
 const Footer = () => {
   return (
