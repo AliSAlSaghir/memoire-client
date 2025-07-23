@@ -1,32 +1,19 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { RiHome2Line, RiHome2Fill } from "react-icons/ri";
 import { IoMdAddCircleOutline, IoMdAddCircle } from "react-icons/io";
 import { LiaCapsulesSolid } from "react-icons/lia";
-import { HiOutlineKey } from "react-icons/hi2";
-import { HiMiniKey } from "react-icons/hi2";
+import { HiOutlineKey, HiMiniKey } from "react-icons/hi2";
 import { FaCapsules } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import { RxAvatar } from "react-icons/rx";
 
 import "./styles.css";
 import logo from "/logo.svg";
-import api from "../../services/axios";
-import { toast } from "react-toastify";
+import { useSidebarLogic } from "./index";
 
 const Sidebar = () => {
-  const navigate = useNavigate();
+  const { handleLogout } = useSidebarLogic();
 
-  const handleLogout = async () => {
-    try {
-      await api.post("/auth/logout");
-      localStorage.removeItem("user");
-      toast.success("Logged out successfully");
-      navigate("/");
-    } catch (error) {
-      toast.error("Logout failed");
-      console.error("Logout error:", error);
-    }
-  };
   return (
     <nav className="sidebar">
       <div className="nav-top">

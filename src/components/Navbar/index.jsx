@@ -1,13 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./styles.css";
+import { useNavbarLogic } from ".";
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  const { handleAuthToggle } = useNavbarLogic();
 
-  const handleAuthToggle = mode => {
-    navigate(`/?mode=${mode}`);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
   return (
     <header className="navbar">
       <div className="nav-left">

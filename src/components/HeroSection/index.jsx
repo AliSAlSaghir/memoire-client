@@ -1,96 +1,16 @@
-import React, { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+// components/HeroSection/HeroSection.jsx
 import "./styles.css";
-import { toast } from "react-toastify";
-import api from "../../services/axios";
+import { useHeroSectionLogic } from ".";
 
 const HeroSection = () => {
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const isRegister = searchParams.get("mode") === "register";
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = e => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.id]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      let response;
-
-      if (isRegister) {
-        response = await api.post("/auth/register", {
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-        });
-      } else {
-        response = await api.post("/auth/login", {
-          email: formData.email,
-          password: formData.password,
-        });
-      }
-
-      localStorage.setItem("user", JSON.stringify(response.data));
-
-      isRegister
-        ? toast.success("Registered Successfully!")
-        : toast.success("Logged in Successfully!");
-
-      navigate("/capsules");
-
-      setFormData({ name: "", email: "", password: "" });
-    } catch (err) {
-      if (err.response && err.response.data) {
-        toast.error(err.response.data.message || "An error occurred");
-      } else {
-        toast.error("Network error or server not responding");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleGoogleLogin = () => {
-    const googleLoginURL = `http://localhost:8000/api/v0.1/auth/google/redirect`;
-
-    const popup = window.open(
-      googleLoginURL,
-      "googleLogin",
-      "width=500,height=600"
-    );
-
-    const handleMessage = event => {
-      if (event.origin !== "http://localhost:8000") return;
-
-      const { token, user } = event.data;
-
-      if (token && user) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user));
-        toast.success("Logged in Successfully!");
-        navigate("/capsules");
-      }
-
-      window.removeEventListener("message", handleMessage);
-      popup.close();
-    };
-
-    window.addEventListener("message", handleMessage);
-  };
+  const {
+    formData,
+    loading,
+    isRegister,
+    handleChange,
+    handleSubmit,
+    handleGoogleLogin,
+  } = useHeroSectionLogic();
 
   return (
     <section className="hero">
