@@ -6,20 +6,17 @@ const Footer = () => {
   return (
     <footer className="footer" role="contentinfo">
       <div className="footer-container">
-        {/* Left: Copyright */}
         <div className="footer-copy">
           &copy; {new Date().getFullYear()}{" "}
           <span className="memoire-hover">Memoire</span>. All rights reserved.
         </div>
 
-        {/* Center: Navigation */}
         <nav className="footer-nav" aria-label="Footer navigation">
           <a href="/privacy-policy">Privacy</a>
           <a href="/terms-of-service">Terms</a>
           <a href="/support">Support</a>
         </nav>
 
-        {/* Right: Social */}
         <div className="footer-social">
           <a
             href="https://x.com/dawouddaoud"

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const useUnlistedLogic = () => {
   const [token, setToken] = useState("");
@@ -15,7 +16,7 @@ export const useUnlistedLogic = () => {
     if (token.length >= 10) {
       navigate(`/unlisted_capsule/${token}`);
     } else {
-      alert("Please enter a valid token");
+      toast.warn("Please enter a valid token");
       setIsSubmitting(false);
     }
   };

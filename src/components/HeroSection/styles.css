@@ -37,7 +37,6 @@
   margin-top: -2rem;
 }
 
-/* LOGIN WRAPPER */
 .login-wrapper {
   background: white;
   padding: 3rem 7rem;
@@ -116,6 +115,7 @@
 .login-wrapper .or {
   text-align: center;
   margin: 0.5rem 0;
+  font-weight: 500;
   color: #333;
 }
 
@@ -141,7 +141,6 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* RESPONSIVE */
 @media screen and (max-width: 768px) {
   .hero {
     flex-direction: column;

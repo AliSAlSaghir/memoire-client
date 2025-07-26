@@ -62,19 +62,12 @@ export const useHeroSectionLogic = () => {
   const handleGoogleLogin = () => {
     const googleLoginURL = `http://localhost:8000/api/v0.1/auth/google/redirect`;
 
-    const popup = window.open(
-      googleLoginURL,
-      "googleLogin",
-      "width=500,height=600"
-    );
+    window.open(googleLoginURL, "googleLogin", "width=500,height=600");
 
     const handleMessage = event => {
-      if (event.origin !== "http://localhost:8000") return;
+      const { user } = event.data;
 
-      const { token, user } = event.data;
-
-      if (token && user) {
-        localStorage.setItem("token", token);
+      if (user) {
         localStorage.setItem("user", JSON.stringify(user));
         toast.success("Logged in Successfully!");
         navigate("/capsules");

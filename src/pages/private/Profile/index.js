@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import api from "../../../services/axios";
 import { toast } from "react-toastify";
 
-// Converts a file to base64
 const fileToBase64 = file => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -25,7 +24,10 @@ const useProfile = () => {
       const user = JSON.parse(userInfo);
       setUsername(user.name || "");
       setEmail(user.email || "");
-      setPhoto(user.profile_picture_url || "https://via.placeholder.com/150");
+      setPhoto(
+        user.profile_picture_url ||
+          "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+      );
     }
   }, []);
 
@@ -58,15 +60,11 @@ const useProfile = () => {
 
     const payload = {
       name: username,
-      ...(base64Image && { profile_picture: base64Image }),
+      profile_picture: base64Image,
     };
 
     try {
-      const response = await api.put(`/updateMe`, payload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await api.put(`/updateMe`, payload);
 
       const updatedUser = response.data.payload.user;
 
@@ -79,7 +77,8 @@ const useProfile = () => {
       );
 
       setPhoto(
-        updatedUser.profile_picture_url || "https://via.placeholder.com/150"
+        updatedUser.profile_picture_url ||
+          "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
       );
 
       toast.success("Profile updated successfully!");

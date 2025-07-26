@@ -10,7 +10,7 @@ export const useSidebarLogic = () => {
     try {
       await api.post("/auth/logout");
       localStorage.removeItem("user");
-      toast.success("Logged out successfully");
+      toast.info("Logged out");
       navigate("/");
     } catch (error) {
       toast.error("Logout failed");

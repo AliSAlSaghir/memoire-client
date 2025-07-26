@@ -11,15 +11,13 @@ const SessionHandler = () => {
       try {
         await api.get("/auth/check_token");
       } catch (err) {
-        if (err.response?.status === 401) {
+        if (err?.response?.status === 401) {
           localStorage.removeItem("user");
           navigate("/", { replace: true });
         }
       }
     };
-
     const user = localStorage.getItem("user");
-
     if (user) {
       checkToken();
     }

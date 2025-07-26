@@ -16,7 +16,7 @@ const dateOptions = [
 
 function getCardSize(capsule) {
   if (capsule.cover_image_url) return "tall";
-  if ((capsule.title || "").length > 30) return "medium";
+  if ((capsule.title || "").length > 20) return "medium";
   return "short";
 }
 
@@ -68,7 +68,6 @@ export function useCapsuleWallLogic(scrollContainerRef) {
     fetchMoods();
 
     fetchInitialCapsules(nextPageUrl);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
